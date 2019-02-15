@@ -133,6 +133,9 @@
                             <li class="active"><a href="listCourse.php"><i class="fa fa-circle-o"></i> All Course</a></li>
                         </ul>
                     </li>
+					<li>
+                        <a href="http://www.mrsmbpj.com/e-keputusan/login.asp" target="_blank"><i class="fa fa-dashboard"></i> <span>Result</span></a>
+					</li>
 					<li class="treeview">
                         <a href="#">
                             <i class="fa fa-book"></i> <span>Documentation</span>

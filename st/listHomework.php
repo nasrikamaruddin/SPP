@@ -157,7 +157,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="profile.php" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
                                         <a href="../logout.php" class="btn btn-default btn-flat">Sign out</a>
@@ -202,6 +202,9 @@
                             <li class="active"><a href="listCourse.php"><i class="fa fa-circle-o"></i> All Course</a></li>
                         </ul>
                     </li>
+					<li>
+                        <a href="http://www.mrsmbpj.com/e-keputusan/login.asp" target="_blank"><i class="fa fa-dashboard"></i> <span>Result</span></a>
+					</li>
 					<li class="treeview">
                         <a href="#">
                             <i class="fa fa-book"></i> <span>Documentation</span>
@@ -318,13 +321,22 @@
 															<td>Time</td>
 															<td>Download</td>
 														</tr>
-															
+														<?php
+														$HA = $row['homeworkID'];
+														$stmt = $connect->prepare("SELECT * FROM submit  WHERE homeworkID = '$HA' AND enrollID = '$enrollID' ");
+														$stmt->execute();
+														
+														
+														$data = $stmt->fetchAll();
+														
+														foreach($data as $row): ?>	
 														<tr>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td><a href='get_file.php?id='>Download</a></td>
+															<td><?=$row['fileName'] ?></td>
+															<td><?=$row['submitDate'] ?></td>
+															<td><?=$row['submitTime'] ?></td>
+															<td><a href='get_file_submitted.php?id=<?=$row['submitID'] ?>'>Click me..</a></td>
 														</tr>
+														<?php endforeach ?>
 													</table>
 													
 												</div>
